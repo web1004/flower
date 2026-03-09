@@ -72,9 +72,10 @@ body {
 }
 
 .logo {
+  font-family: "Noto Serif KR", serif;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  font-size: 18px;
+  font-size: 22px;
+  letter-spacing: 0.04em;
   color: var(--color-text);
 }
 
