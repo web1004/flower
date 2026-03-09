@@ -669,8 +669,8 @@ body {
 
 .site-footer {
   padding-top: 32px;
-  background: #f6efe9;
-  border-top: 1px solid rgba(234, 222, 216, 0.9);
+  background: #f5f5f5;
+  border-top: 1px solid #e2e2e2;
 }
 
 .footer-inner {
@@ -709,7 +709,7 @@ body {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(234, 222, 216, 0.9);
+  border-top: 1px solid #e2e2e2;
   padding: 10px 0 14px;
 }
 
