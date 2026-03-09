@@ -1,0 +1,54 @@
+---
+description: HTML structure and style conventions for the flower shop landing page
+globs: **/*.html
+alwaysApply: true
+---
+
+# HTML 스타일 가이드 (향기나는 꽃집 랜딩 페이지)
+
+- **문서 기본 설정**
+  - `lang` 속성은 `ko`를 사용합니다.
+  - `meta viewport`와 `charset="UTF-8"`을 항상 포함합니다.
+
+- **구조와 시맨틱 태그**
+  - 페이지의 기본 구조는 `header`, `main`, `footer`를 기준으로 구성합니다.
+  - 주요 섹션은 `section`과 의미 있는 `id`를 사용합니다. 예: `hero`, `moments`, `products`, `special`, `delivery`, `reviews`, `how-to-order`, `cta`.
+  - 타이포 계층은 다음 클래스를 우선 사용합니다.
+    - 섹션 제목: `section-title`
+    - 섹션 보조 설명: `section-subtitle`
+    - 섹션 상단 키커: `section-kicker`
+
+- **클래스 네이밍**
+  - 공통 레이아웃/스타일 클래스는 재사용 가능한 이름을 사용합니다.
+    - 컨테이너: `container`
+    - 카드: `card`
+    - 그리드: `grid`
+    - 버튼: `btn`, 변형은 `btn primary`, `btn secondary`, `btn-outline`, `btn small`, `btn large`처럼 공백으로 구분된 modifier를 사용합니다.
+  - 섹션별 클래스는 `영역-역할` 형태를 권장합니다. 예: `hero-inner`, `product-card`, `reviews-grid`, `cta-section`.
+
+- **접근성 및 링크**
+  - 내비게이션 토글 버튼에는 `aria-label`을 필수로 포함합니다.
+  - 외부 링크는 `target="_blank"`와 함께 사용할 때 `링크 클릭 시 새 창에서 열립니다.` 등 안내 문구를 인접한 텍스트로 제공합니다.
+  - 목록 정보는 의미에 따라 `ul`/`ol`을 사용하고, 시각적인 목록을 위해 불필요하게 `div` 나열을 만들지 않습니다.
+
+- **콘텐츠 톤 & 카피**
+  - 한글 텍스트는 존댓말을 기본으로 하고, 브랜드 톤은 따뜻하고 부드러운 표현을 사용합니다.
+  - 섹션 제목은 짧고 직관적으로 작성합니다. 예: `꽃이 필요한 순간`, `추천 꽃 상품`, `배송 안내`, `고객 후기`, `주문 방법`.
+
+- **예시**
+
+```html
+<section class="section soft" id="reviews">
+  <div class="container">
+    <header class="section-header">
+      <p class="section-kicker">Reviews</p>
+      <h2 class="section-title">고객 후기</h2>
+      <p class="section-subtitle">
+        인스타그램에 남겨주신 소중한 후기 중 일부를 소개합니다.
+      </p>
+    </header>
+    <!-- ... -->
+  </div>
+</section>
+```
+

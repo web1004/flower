@@ -1,0 +1,40 @@
+---
+description: JavaScript, TypeScript, CSS/SCSS 코딩 스타일 가이드
+globs: **/*.{js,ts,tsx,css,scss}
+alwaysApply: true
+---
+
+# 코딩 스타일 가이드 (향기나는 꽃집)
+
+- **기본 원칙**
+  - 읽기 쉬운 코드, 예측 가능한 동작을 우선합니다.
+  - 함수와 변수는 역할이 드러나는 이름을 사용합니다. (한국어 설명이 필요하면 주석으로 남기고, 식별자는 영문 사용 권장)
+
+- **JavaScript / TypeScript**
+  - `var`는 사용하지 않고, `const`와 `let`만 사용합니다.
+  - 비교 연산은 `==` 대신 항상 `===`를 사용합니다.
+  - 함수는 가능한 한 화살표 함수로 작성하고, 짧고 하나의 역할만 담당하도록 분리합니다.
+  - DOM 요소 선택 시 명확한 클래스/ID를 사용하고, 전역 선택자 남용을 피합니다.
+  - 이벤트 리스너는 `addEventListener`를 사용하며, 필요 없는 경우 꼭 제거합니다.
+  - 매직 넘버/문자열은 상수로 분리하고, 상수 이름은 `UPPER_SNAKE_CASE`를 사용합니다.
+
+- **CSS / SCSS**
+  - 클래스 네이밍은 HTML 규칙과 일관되게 사용합니다. (`hero-inner`, `product-card`, `cta-section` 등)
+  - 색상, 폰트 크기, 여백 값은 가능하면 CSS 변수나 SCSS 변수로 공통 관리합니다.
+  - 인접 선택자나 너무 구체적인 셀렉터 체인은 피하고, 재사용 가능한 유틸리티 클래스를 선호합니다.
+  - 반응형 스타일은 `min-width` 기준의 모바일 퍼스트 미디어쿼리를 우선 사용합니다.
+
+- **포맷팅 & 주석**
+  - 들여쓰기는 스페이스 2 or 4 중 프로젝트 설정을 따르되, 파일 내에서는 반드시 일관되게 유지합니다.
+  - 한글 주석은 "왜 이렇게 했는지"를 설명할 때만 사용하고, "무엇을 하는지"는 코드 자체로 이해되도록 작성합니다.
+
+```js
+// 예시: nav 토글
+const navToggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.nav');
+
+navToggle.addEventListener('click', () => {
+  nav.classList.toggle('is-open');
+});
+```
+
