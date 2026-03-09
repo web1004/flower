@@ -803,6 +803,11 @@ body {
 }
 
 @media (max-width: 640px) {
+  .site-header .container {
+    padding-left: 26px;
+    padding-right: 26px;
+  }
+
   .hero {
     padding-top: 18px;
   }
