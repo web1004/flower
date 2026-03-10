@@ -667,6 +667,84 @@ body {
   color: #7f6b6b;
 }
 
+/* 고객 문의 폼 */
+.inquiry-section {
+  background-color: var(--color-secondary);
+}
+
+.inquiry-form {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.inquiry-field {
+  margin-bottom: 18px;
+}
+
+.inquiry-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.inquiry-field input,
+.inquiry-field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: inherit;
+  color: var(--color-text);
+  background: #fff;
+  transition: border-color 0.2s ease;
+}
+
+.inquiry-field input::placeholder,
+.inquiry-field textarea::placeholder {
+  color: var(--color-muted);
+}
+
+.inquiry-field input:focus,
+.inquiry-field textarea:focus {
+  outline: none;
+  border-color: var(--color-button);
+}
+
+.inquiry-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.inquiry-error {
+  display: block;
+  font-size: 12px;
+  color: #c76b39;
+  margin-top: 4px;
+}
+
+.inquiry-form .btn {
+  margin-top: 8px;
+}
+
+.inquiry-success {
+  margin: 14px 0 0;
+  font-size: 14px;
+  color: var(--color-accent);
+}
+
+.inquiry-error-msg {
+  margin: 14px 0 0;
+  font-size: 14px;
+  color: #c76b39;
+}
+
+.hidden {
+  display: none !important;
+}
+
 .site-footer {
   padding-top: 32px;
   background: #f5f5f5;

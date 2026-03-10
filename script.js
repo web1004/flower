@@ -46,3 +46,81 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
+// 고객 문의 폼 — Supabase 제출
+const inquiryForm = document.getElementById("inquiry-form");
+if (inquiryForm) {
+  const phoneInput = document.getElementById("inquiry-phone");
+  const messageInput = document.getElementById("inquiry-message");
+  const phoneError = document.getElementById("inquiry-phone-error");
+  const messageError = document.getElementById("inquiry-message-error");
+  const successEl = document.getElementById("inquiry-success");
+  const submitErrorEl = document.getElementById("inquiry-submit-error");
+
+  function showSuccess() {
+    successEl.classList.remove("hidden");
+    submitErrorEl.classList.add("hidden");
+    inquiryForm.querySelector('button[type="submit"]').disabled = true;
+  }
+
+  function showSubmitError(msg) {
+    submitErrorEl.textContent = msg;
+    submitErrorEl.classList.remove("hidden");
+    successEl.classList.add("hidden");
+  }
+
+  function clearFieldErrors() {
+    phoneError.textContent = "";
+    messageError.textContent = "";
+    submitErrorEl.classList.add("hidden");
+  }
+
+  inquiryForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    clearFieldErrors();
+
+    const phone = (phoneInput.value || "").trim();
+    const message = (messageInput.value || "").trim();
+    let valid = true;
+
+    if (!phone) {
+      phoneError.textContent = "휴대전화 번호를 입력해 주세요.";
+      valid = false;
+    }
+    if (!message) {
+      messageError.textContent = "문의사항을 입력해 주세요.";
+      valid = false;
+    }
+    if (!valid) return;
+
+    const url = window.SUPABASE_URL;
+    const key = window.SUPABASE_ANON_KEY;
+    if (!url || !key) {
+      showSubmitError("문의 설정이 되어 있지 않습니다. 관리자에게 문의해 주세요.");
+      return;
+    }
+
+    const submitBtn = document.getElementById("inquiry-submit");
+    const originalLabel = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = "전송 중...";
+
+    try {
+      const supabase = window.supabase.createClient(url, key);
+      const { error } = await supabase.from("customer_inquiries").insert({
+        phone,
+        message,
+      });
+      if (error) throw error;
+      showSuccess();
+      submitBtn.textContent = "접수 완료";
+    } catch (err) {
+      console.error(err);
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalLabel;
+      showSubmitError(
+        err.message || "문의 전송에 실패했습니다. 잠시 후 다시 시도해 주세요."
+      );
+    }
+  });
+}
+
